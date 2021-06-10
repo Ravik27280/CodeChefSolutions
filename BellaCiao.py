@@ -12,36 +12,14 @@
 #         print(i)
 # Div()
 
-TestCase=int(input())
-l=[]
-s=0
-n=1
-Ans=[]
-
-for i in range(TestCase):
-    a=list(map(int,input().split()))
-    l.append(a)
-
-print(l)
-# for i in range(l[0]):
-#     if i/l[1]==0:
-#         s+=l[2]+n*l[3]
-#         r=s
-#         n+=1
-#     else:
-#         s+=r
-# print(s-l[1])
-for i in range(len(l)):
-    for j in range(l[i][0]):
-        r=l[i][2]
-        if j%l[i][1]==0:
-            s+=l[i][2]+(n*l[i][3])
-            r=s
-            n+=1
-        else:
-            s+=r
-    Ans.append(s)
-    s=0
-    n=1
-for i in range(len(Ans)):
-    print(Ans[i])
+T=int(input())
+for i in range(T):
+    D,d,p,q=map(int,input().split())
+    x=D//d
+    if x%2==0:
+        c=d*((x//2)*(2*p+(x-1)*q))
+        c+=(D%d)*(p+x*q)
+    else:
+        c=d*(x*(p+((x-1)//2)*q))
+        c+=(D%d)*(p+x*q)
+    print(int(c))
